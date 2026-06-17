@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>设置 · 番茄钟</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="nav-btn">
+    <i class="ti ti-arrow-left"></i> 返回
+  </a>
+  <span class="logo">设置</span>
+  <div style="width:80px"></div>
+</header>
+
+<main class="settings-main">
+
+  <section class="settings-section">
+    <h2>时间设置 <span class="hint">（分钟）</span></h2>
+
+    <div class="setting-row">
+      <label for="focusMin">专注时长</label>
+      <div class="input-group">
+        <button class="step-btn" onclick="step('focusMin',-1)"><i class="ti ti-minus"></i></button>
+        <input type="number" id="focusMin" min="1" max="90" value="25" />
+        <button class="step-btn" onclick="step('focusMin',1)"><i class="ti ti-plus"></i></button>
+      </div>
+    </div>
+
+    <div class="setting-row">
+      <label for="shortMin">短休息时长</label>
+      <div class="input-group">
+        <button class="step-btn" onclick="step('shortMin',-1)"><i class="ti ti-minus"></i></button>
+        <input type="number" id="shortMin" min="1" max="30" value="5" />
+        <button class="step-btn" onclick="step('shortMin',1)"><i class="ti ti-plus"></i></button>
+      </div>
+    </div>
+
+    <div class="setting-row">
+      <label for="longMin">长休息时长</label>
+      <div class="input-group">
+        <button class="step-btn" onclick="step('longMin',-1)"><i class="ti ti-minus"></i></button>
+        <input type="number" id="longMin" min="1" max="60" value="15" />
+        <button class="step-btn" onclick="step('longMin',1)"><i class="ti ti-plus"></i></button>
+      </div>
+    </div>
+
+    <div class="setting-row">
+      <label for="autoBreak">每几个番茄长休息</label>
+      <div class="input-group">
+        <button class="step-btn" onclick="step('autoBreak',-1)"><i class="ti ti-minus"></i></button>
+        <input type="number" id="autoBreak" min="1" max="10" value="4" />
+        <button class="step-btn" onclick="step('autoBreak',1)"><i class="ti ti-plus"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="settings-section">
+    <h2>自动化</h2>
+
+    <div class="setting-row toggle-row">
+      <label for="autoStartBreak">完成专注后自动开始休息</label>
+      <label class="toggle">
+        <input type="checkbox" id="autoStartBreak" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="setting-row toggle-row">
+      <label for="autoStartFocus">完成休息后自动开始专注</label>
+      <label class="toggle">
+        <input type="checkbox" id="autoStartFocus" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="setting-row toggle-row">
+      <label for="notifyEnabled">桌面通知</label>
+      <label class="toggle">
+        <input type="checkbox" id="notifyEnabled" checked />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="setting-row toggle-row">
+      <label for="soundEnabled">音效提示</label>
+      <label class="toggle">
+        <input type="checkbox" id="soundEnabled" checked />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </section>
+
+  <div class="settings-actions">
+    <button class="save-btn" onclick="saveSettings()">
+      <i class="ti ti-check"></i> 保存设置
+    </button>
+    <button class="reset-btn" onclick="resetSettings()">恢复默认</button>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+</main>
+
+<script src="settings.js"></script>
+</body>
+</html>
